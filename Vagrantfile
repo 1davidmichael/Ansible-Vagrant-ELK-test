@@ -13,7 +13,7 @@ Vagrant.configure(2) do |config|
 		virtualbox.cpus = 2
 	end
 
-	(0..5).each do |index|
+	(0..2).each do |index|
 		config.vm.define "es-#{index}" do |mesosphere_slave|
 			mesosphere_slave.vm.network "private_network", ip: "192.168.1.2#{index}", vitualbox__intnet: true
 			mesosphere_slave.vm.hostname="es-#{index}"

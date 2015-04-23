@@ -5,13 +5,22 @@
     enabled=no
 
 - name: disable selinux
-  selinux:
-    state=disabled
+  copy:
+    src=etc/selinux/config
+    dest=/etc/selinux/config
 
 - name: disable selinux now
-  command: setenforce 0
+  shell: setenforce 0 && touch /etc/selinux_disabled
+  args:
+    creates: /etc/selinux_disabled
 
 - name: adding hosts file to make life easier
   copy:
     src=/etc/hosts
     dest=/etc/hosts
+
+- name: Install java jdk
+  yum:
+    name=java-1.7.0-openjdk-devel
+    state=present
+

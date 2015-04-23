@@ -1,0 +1,16 @@
+
+- name: Add logstash repo
+  copy:
+    src=etc/yum.repos.d/logstash.repo
+    dest=/etc/yum.repos.d/logstash.repo
+
+- name: install logstash
+  yum:
+    name=logstash
+    state=present
+
+- name: start logstash
+  service:
+    name=logstash
+    state=started
+    enabled=yes

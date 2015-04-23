@@ -4,3 +4,6 @@
   remote_user: vagrant
   roles:
     - common
+    - elasticsearch
+    - logstash
+    - kibana

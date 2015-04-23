@@ -1,0 +1,10 @@
+- name: Copy kibana tar file
+  get_url:
+    url="https://download.elastic.co/kibana/kibana/kibana-4.0.2-linux-x64.tar.gz"
+    dest="/opt/kibana-4.0.2-linux-x64.tar.gz"
+
+- name: unpack kibana
+  unarchive:
+    src=/opt/kibana-4.0.2-linux-x64.tar.gz
+    dest=/opt
+    copy=no

@@ -1,12 +1,4 @@
-[masters]
-mesosphere-master-0 zookeeper_id=1
-mesosphere-master-1 zookeeper_id=2
-mesosphere-master-2 zookeeper_id=3
-
-[slaves]
-mesosphere-slave-0 
-mesosphere-slave-1 
-mesosphere-slave-2 
-mesosphere-slave-3 
-mesosphere-slave-4 
-mesosphere-slave-5
+[all]
+es-0
+es-1
+es-2
