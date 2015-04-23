@@ -9,6 +9,11 @@
     name=logstash
     state=present
 
+- name: Add logstash config file
+  copy:
+    src=etc/logstash/conf.d/input.conf
+    dest=/etc/logstash/conf.d/input.conf
+
 - name: start logstash
   service:
     name=logstash
