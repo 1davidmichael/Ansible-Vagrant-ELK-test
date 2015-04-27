@@ -8,6 +8,13 @@
     name=elasticsearch
     state=present
 
+- name: elasticsearch config file
+  template:
+    src=etc/elasticsearch/elasticsearch.yml.j2
+    dest=/etc/elasticsearch/elasticsearch.yml
+  notify:
+    - restart elasticsearch
+
 - name: start elasticsearch
   service:
     name=elasticsearch
