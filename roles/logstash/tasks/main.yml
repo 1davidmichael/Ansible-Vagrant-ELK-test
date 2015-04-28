@@ -9,10 +9,19 @@
     name=logstash
     state=present
 
-- name: Add logstash config file
+- name: Add logstash input config file
   copy:
     src=etc/logstash/conf.d/input.conf
     dest=/etc/logstash/conf.d/input.conf
+  notify:
+    - restart logstash
+
+- name: Add logstash output config file
+  copy:
+    src=etc/logstash/conf.d/output.conf
+    dest=/etc/logstash/conf.d/output.conf
+  notify:
+    - restart logstash
 
 - name: start logstash
   service:
