@@ -9,10 +9,21 @@
     dest=/opt
     copy=no
 
+- name: symlink install dir
+  file:
+    src=/opt/kibana-4.0.2-linux-x64
+    dest=/opt/kibana
+    state=link
+    force=yes
+
 - name: create systemd unit file
   copy:
     src=etc/systemd/system/kibana.service
     dest=/etc/systemd/system/kibana.service
 
 - name: start kibana
+  service:
+    name=kibana
+    state=started
+    enabled=yes
 
